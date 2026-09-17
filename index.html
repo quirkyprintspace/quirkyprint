@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DELULU CO. — delulu is the solulu</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👕</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0e0e10;
+    --bg-card:#18181b;
+    --ink:#f4f1e6;
+    --muted:#8f8f97;
+    --brat:#c8f000;
+    --pink:#ff3fa4;
+    --line:#2a2a2e;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Space Grotesk', sans-serif;
+    line-height:1.4;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  h1,h2,h3{font-family:'Archivo Black', 'Space Grotesk', sans-serif; margin:0; line-height:1.02;}
+  a{color:inherit;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+  button{font-family:inherit; cursor:pointer;}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(14,14,16,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px; max-width:1180px; margin:0 auto;
+  }
+  .logo{font-family:'Archivo Black'; font-size:1.3rem; letter-spacing:-0.02em;}
+  .logo span{color:var(--brat);}
+  .nav-links{display:flex; gap:28px; list-style:none; margin:0; padding:0; font-size:0.95rem;}
+  .nav-links a{text-decoration:none; opacity:0.85; transition:opacity .15s;}
+  .nav-links a:hover{opacity:1; color:var(--brat);}
+  .cart-btn{
+    display:flex; align-items:center; gap:8px;
+    background:transparent; border:1.5px solid var(--line); color:var(--ink);
+    padding:8px 14px; border-radius:999px; font-size:0.9rem;
+  }
+  .cart-btn:hover{border-color:var(--brat); color:var(--brat);}
+  #cart-count{background:var(--brat); color:#0e0e10; font-weight:700; border-radius:999px; padding:1px 8px; font-size:0.78rem;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:64px 24px 40px; overflow:hidden;}
+  .hero-inner{
+    max-width:1180px; margin:0 auto;
+    display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:center;
+  }
+  .hero-copy .eyebrow{color:var(--brat); font-weight:600; font-size:0.95rem; margin-bottom:10px;}
+  .hero-copy h1{font-size:clamp(2.6rem, 6vw, 4.6rem); letter-spacing:-0.01em;}
+  .hero-copy h1 em{font-style:normal; color:var(--brat);}
+  .hero-copy p{color:var(--muted); font-size:1.08rem; max-width:38ch; margin:18px 0 28px;}
+  .btn-primary{
+    background:var(--brat); color:#0e0e10; border:none; font-weight:700;
+    padding:15px 26px; border-radius:999px; font-size:1rem;
+    box-shadow:6px 6px 0 var(--pink);
+    transition:transform .15s ease;
+  }
+  .btn-primary:hover{transform:translate(-2px,-2px);}
+  .btn-primary:active{transform:translate(0,0); box-shadow:2px 2px 0 var(--pink);}
+
+  .hero-collage{position:relative; height:440px;}
+  .collage-shirt{
+    position:absolute; width:170px; filter:drop-shadow(0 14px 18px rgba(0,0,0,.45));
+    transition:transform .25s ease;
+  }
+  .collage-shirt:hover{transform:scale(1.06) rotate(0deg) !important; z-index:5;}
+  .c1{top:0; left:10%; width:190px; transform:rotate(-9deg);}
+  .c2{top:10px; right:2%; width:150px; transform:rotate(11deg);}
+  .c3{bottom:30px; left:0; width:150px; transform:rotate(7deg);}
+  .c4{bottom:0; right:14%; width:180px; transform:rotate(-6deg);}
+  .c5{top:150px; left:32%; width:140px; transform:rotate(3deg); z-index:2;}
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    background:var(--brat); color:#0e0e10; overflow:hidden; white-space:nowrap;
+    padding:12px 0;
+  }
+  .marquee-track{display:inline-flex; gap:40px; animation:scroll-left 22s linear infinite;}
+  .marquee span{font-family:'Archivo Black'; font-size:1.05rem; letter-spacing:.02em;}
+  @keyframes scroll-left{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+  /* ---------- SECTION HEADS ---------- */
+  .section{padding:80px 0;}
+  .section-head{margin-bottom:36px; max-width:560px;}
+  .section-head .tag{color:var(--pink); font-weight:600; font-size:0.92rem;}
+  .section-head h2{font-size:clamp(1.8rem,4vw,2.6rem); margin-top:8px;}
+  .section-head p{color:var(--muted); margin-top:12px;}
+
+  /* ---------- MOOD SLIDER ---------- */
+  .mood{padding-top:70px; padding-bottom:70px; background:var(--bg-card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .slider-viewport{overflow:hidden; position:relative; margin-top:10px;}
+  .slider-viewport::before, .slider-viewport::after{
+    content:""; position:absolute; top:0; bottom:0; width:80px; z-index:2; pointer-events:none;
+  }
+  .slider-viewport::before{left:0; background:linear-gradient(90deg, var(--bg-card), transparent);}
+  .slider-viewport::after{right:0; background:linear-gradient(270deg, var(--bg-card), transparent);}
+  .slider-track{display:flex; gap:18px; width:max-content; animation:slide-left 38s linear infinite;}
+  .slider-viewport:hover .slider-track, .slider-viewport:focus-within .slider-track{animation-play-state:paused;}
+  .slider-track figure{margin:0; width:230px; flex:0 0 auto; position:relative; border-radius:var(--radius); overflow:hidden;}
+  .slider-track img{height:300px; width:230px; object-fit:cover; filter:saturate(1.05) contrast(1.03);}
+  .slider-track figcaption{
+    position:absolute; left:10px; bottom:10px; background:rgba(14,14,16,.7);
+    padding:5px 10px; border-radius:999px; font-size:0.78rem; font-weight:600;
+  }
+  @keyframes slide-left{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track, .slider-track{animation:none;}
+  }
+
+  /* ---------- SHOP GRID ---------- */
+  .shop-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+  .card{
+    background:var(--bg-card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:22px; display:flex; flex-direction:column; align-items:center; text-align:center;
+  }
+  .card .shirt-stage{width:100%; height:190px; display:flex; align-items:center; justify-content:center; margin-bottom:6px;}
+  .card svg{width:150px; height:auto; filter:drop-shadow(0 10px 14px rgba(0,0,0,.4));}
+  .card h3{font-size:1.05rem; margin-top:8px;}
+  .price-tag{
+    display:inline-block; margin:10px 0 16px; background:#0e0e10; border:1px dashed var(--muted);
+    color:var(--brat); font-weight:700; padding:4px 12px; border-radius:8px; font-size:0.95rem;
+  }
+  .card-actions{display:flex; gap:10px; width:100%;}
+  .btn-ghost, .btn-add{
+    flex:1; padding:10px 8px; border-radius:8px; font-size:0.85rem; font-weight:600; border:1.5px solid var(--line);
+    background:transparent; color:var(--ink);
+  }
+  .btn-ghost:hover{border-color:var(--pink); color:var(--pink);}
+  .btn-add{background:var(--ink); color:#0e0e10; border-color:var(--ink);}
+  .btn-add:hover{background:var(--brat); border-color:var(--brat);}
+
+  /* ---------- CUSTOMIZE ---------- */
+  .customize{background:var(--bg-card); border-top:1px solid var(--line);}
+  .studio{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;}
+  .studio-preview{display:flex; align-items:center; justify-content:center; background:#0e0e10; border:1px solid var(--line); border-radius:20px; padding:30px; min-height:380px;}
+  .studio-preview svg{width:230px; height:auto; filter:drop-shadow(0 16px 20px rgba(0,0,0,.5));}
+  .field-label{font-weight:600; font-size:0.85rem; color:var(--muted); margin-bottom:8px; display:block;}
+  .swatches{display:flex; gap:10px; margin-bottom:26px;}
+  .swatch{width:36px; height:36px; border-radius:50%; border:2px solid transparent; cursor:pointer;}
+  .swatch.active{border-color:var(--brat); box-shadow:0 0 0 2px #0e0e10 inset;}
+  .studio input[type=text]{
+    width:100%; padding:13px 14px; border-radius:10px; border:1.5px solid var(--line);
+    background:#0e0e10; color:var(--ink); font-family:inherit; font-size:1rem; margin-bottom:26px;
+  }
+  .studio input[type=text]:focus{outline:2px solid var(--brat); border-color:transparent;}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line); padding:48px 24px 30px;}
+  .foot-inner{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px; max-width:1180px; margin:0 auto;}
+  footer .logo{margin-bottom:8px;}
+  footer p{color:var(--muted); font-size:0.9rem; max-width:32ch;}
+  .foot-links{display:flex; gap:40px; flex-wrap:wrap;}
+  .foot-links h4{font-size:0.85rem; color:var(--muted); margin-bottom:10px; font-weight:600;}
+  .foot-links ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; font-size:0.92rem;}
+  .foot-links a{text-decoration:none;}
+  .foot-links a:hover{color:var(--brat);}
+  .bottom-line{text-align:center; color:var(--muted); font-size:0.8rem; margin-top:40px;}
+
+  /* ---------- TOAST ---------- */
+  #toast{
+    position:fixed; bottom:26px; left:50%; transform:translate(-50%, 20px);
+    background:var(--brat); color:#0e0e10; font-weight:700; padding:12px 22px;
+    border-radius:999px; opacity:0; transition:all .25s ease; z-index:100; pointer-events:none;
+    font-size:0.92rem;
+  }
+  #toast.show{opacity:1; transform:translate(-50%, 0);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:860px){
+    .hero-inner{grid-template-columns:1fr;}
+    .hero-collage{height:320px; margin-top:20px;}
+    .nav-links{display:none;}
+    .shop-grid{grid-template-columns:repeat(2,1fr);}
+    .studio{grid-template-columns:1fr;}
+  }
+  @media (max-width:520px){
+    .shop-grid{grid-template-columns:1fr;}
+  }
+
+  :focus-visible{outline:2px solid var(--brat); outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo">DELULU<span>.</span>CO</div>
+    <ul class="nav-links">
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#customize">Customize</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <button class="cart-btn" id="cart-btn">🛍 Bag <span id="cart-count">0</span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="eyebrow">NEW DROP · 100% COTTON · SHIPS IN 3 DAYS</div>
+      <h1>WEAR YOUR<br><em>DELULU.</em></h1>
+      <p>Certified unhinged graphic tees for people who manifest their whole personality. Delulu is the solulu, bestie.</p>
+      <a href="#shop"><button class="btn-primary">Shop the Drop →</button></a>
+    </div>
+    <div class="hero-collage" id="hero-collage"></div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track" id="marquee-track"></div>
+</div>
+
+<section class="mood" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">THE MOOD BOARD</div>
+      <h2>Vibes we are actively stealing</h2>
+      <p>Rotating inspo we're pulling fits from this week. No sources cited, no regrets.</p>
+    </div>
+  </div>
+  <div class="slider-viewport">
+    <div class="slider-track" id="mood-track"></div>
+  </div>
+</section>
+
+<section class="section" id="shop">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">THE SHOP</div>
+      <h2>Pick your personality tee</h2>
+      <p>Every design is print-on-demand, so your era is always in stock.</p>
+    </div>
+    <div class="shop-grid" id="shop-grid"></div>
+  </div>
+</section>
+
+<section class="section customize" id="customize">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="tag">THE STUDIO</div>
+      <h2>Design your own unhinged fit</h2>
+      <p>Pick a colourway, type your own caption, download the mockup. No login, no cap.</p>
+    </div>
+    <div class="studio">
+      <div>
+        <span class="field-label">01 · COLOURWAY</span>
+        <div class="swatches" id="swatches"></div>
+
+        <span class="field-label">02 · YOUR CAPTION</span>
+        <input type="text" id="custom-text" maxlength="26" value="MAIN CHARACTER SZN" placeholder="type something feral...">
+
+        <button class="btn-primary" id="download-custom">Download your fit ↓</button>
+      </div>
+      <div class="studio-preview">
+        <svg id="preview-svg" viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg"></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="logo">DELULU<span>.</span>CO</div>
+      <p>Graphic tees for the confidently unrealistic. Made for group chats, not group interviews.</p>
+    </div>
+    <div class="foot-links">
+      <div>
+        <h4>SHOP</h4>
+        <ul><li><a href="#shop">All tees</a></li><li><a href="#customize">Customize</a></li></ul>
+      </div>
+      <div>
+        <h4>FOLLOW</h4>
+        <ul><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li></ul>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-line">© 2026 Delulu Co. Not a real villain origin story. Just tees.</div>
+</footer>
+
+<div id="toast"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
